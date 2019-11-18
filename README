@@ -1,0 +1,15 @@
+This is the repository to make ntuples for SCT histogram. 
+
+1. First, one has to run usual SCTLorentzMonTool.cxx with cout statements (one such file is kept in this repository).
+2. Download the log files from the grid. 
+3. In the same directory where the unzipped log files are kept, run OpenLog.py:
+
+python OpenLog.py <name of the output root file name without .root extension>
+
+4. The above code should produce one root file from each log file, and after all the log files, this code will produce a combined root file using hadd. 
+
+5. Details:
+ a. MakeTree.C is the actual code which produces root ntuple from the log file.
+ b. MakeLib.sh just compiles MakeTree.C and prepare the library.
+ c. RunRootMASTER.sh runs the previously made library. 
+ d. Steps a to c are wrapped into OpenLog.py. 
